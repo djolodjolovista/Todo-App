@@ -1,15 +1,9 @@
-import { getTodos } from '../lib/todoServices';
+import { TodoActionType } from '../actions';
 
 export interface Todo {
   id: number;
   name: string;
   isCompleted: boolean;
-}
-
-enum TodoActionType {
-  TODO_ADD = 'TODO_ADD',
-  UPDATE_CURRENT = 'UPDATE_CURRENT',
-  TODOS_LOAD = 'TODOS_LOAD'
 }
 
 export interface TodosState {
@@ -22,21 +16,13 @@ const initialState: TodosState = {
   currentTodo: 'temp'
 };
 
-export const loadTodos = (todos: Todo[]) => ({ type: TodoActionType.TODOS_LOAD, payload: todos });
-
-export const fetchTodos = () => {
-  return (dispatch: any) => {
-    //referenca na dispatch
-    getTodos().then((todos) => dispatch(loadTodos(todos)));
-  };
-};
-
 const todoReducer = (state = initialState, action: any) => {
   switch (action.type) {
     case TodoActionType.TODO_ADD:
       return {
         ...state,
-        todos: state.todos.concat(action.payload) //payload ce biti todo objekat
+        currentTodo: '',
+        todos: state.todos.concat(action.payload as Todo) //payload ce biti todo objekat
       };
 
     case TodoActionType.TODOS_LOAD:
