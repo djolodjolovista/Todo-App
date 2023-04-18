@@ -3,12 +3,16 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-import { legacy_createStore } from 'redux';
+import { legacy_createStore, applyMiddleware, compose } from 'redux';
+import thunk from 'redux-thunk';
 import rootReducer from './redux/reducers';
 import { composeWithDevTools } from 'redux-devtools-extension'; // ekstenzija za devtool u chrome
 import { Provider } from 'react-redux';
 
-const store = legacy_createStore(rootReducer, composeWithDevTools());
+const store = legacy_createStore(
+  rootReducer,
+  compose(applyMiddleware(thunk), composeWithDevTools())
+);
 
 const root = ReactDOM.createRoot(document.getElementById('root') as HTMLElement);
 root.render(

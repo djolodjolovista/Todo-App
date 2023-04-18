@@ -1,11 +1,17 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import TodoItem from './TodoItem';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { RootState } from '../redux/reducers';
+import { fetchTodos } from '../redux/reducers/todo';
 
 const TodoList = () => {
-  console.log('List rendering!');
   const todos = useSelector((state: RootState) => state.todo.todos);
+  const dispatch = useDispatch<any>();
+
+  useEffect(() => {
+    dispatch(fetchTodos());
+  }, []);
+
   return (
     <div className="Todo-List">
       <ul>

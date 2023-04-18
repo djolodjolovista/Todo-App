@@ -1,3 +1,5 @@
+import { getTodos } from '../lib/todoServices';
+
 export interface Todo {
   id: number;
   name: string;
@@ -6,7 +8,8 @@ export interface Todo {
 
 enum TodoActionType {
   TODO_ADD = 'TODO_ADD',
-  UPDATE_CURRENT = 'UPDATE_CURRENT'
+  UPDATE_CURRENT = 'UPDATE_CURRENT',
+  TODOS_LOAD = 'TODOS_LOAD'
 }
 
 export interface TodosState {
@@ -15,12 +18,17 @@ export interface TodosState {
 }
 
 const initialState: TodosState = {
-  todos: [
-    { id: 1, name: 'Create Static UI', isCompleted: true },
-    { id: 2, name: 'Create Initial State', isCompleted: true },
-    { id: 3, name: 'Use State To Render UI', isCompleted: true }
-  ],
+  todos: [],
   currentTodo: 'temp'
+};
+
+export const loadTodos = (todos: Todo[]) => ({ type: TodoActionType.TODOS_LOAD, payload: todos });
+
+export const fetchTodos = () => {
+  return (dispatch: any) => {
+    //referenca na dispatch
+    getTodos().then((todos) => dispatch(loadTodos(todos)));
+  };
 };
 
 const todoReducer = (state = initialState, action: any) => {
@@ -29,6 +37,12 @@ const todoReducer = (state = initialState, action: any) => {
       return {
         ...state,
         todos: state.todos.concat(action.payload) //payload ce biti todo objekat
+      };
+
+    case TodoActionType.TODOS_LOAD:
+      return {
+        ...state,
+        todos: action.payload
       };
 
     case TodoActionType.UPDATE_CURRENT:
