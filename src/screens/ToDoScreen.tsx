@@ -4,6 +4,8 @@ import TodoForm from '../components/TodoForm';
 import TodoList from '../components/TodoList';
 import { useSelector, useDispatch } from 'react-redux';
 import { RootState } from '../redux/reducers';
+import Message from '../components/Message';
+import Footer from '../components/Footer';
 
 export interface Todos {
   id: number;
@@ -22,8 +24,10 @@ const ToDoScreen = () => {
   return (
     <div>
       <div className="Todo-App">
+        <Message />
         <TodoForm />
         <TodoList />
+        <Footer />
       </div>
     </div>
   );

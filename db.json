@@ -3,7 +3,7 @@
     {
       "id": 1,
       "name": "Task1",
-      "isCompleted": true
+      "isCompleted": false
     },
     {
       "id": 2,
@@ -22,8 +22,13 @@
     },
     {
       "name": "Task5",
-      "isCompleted": false,
+      "isCompleted": true,
       "id": 5
+    },
+    {
+      "name": "Task6",
+      "isCompleted": false,
+      "id": 6
     }
   ]
 }
