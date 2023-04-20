@@ -2,6 +2,27 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+## How to start project
+
+First run `npm start`, after that run command `npm run dev-server`
+
+## Frontend
+
+- React.js and TypeScript.js
+
+## State management tool
+
+- Redux
+
+## Backend
+
+- Mock api server with json server npm module
+- Command for installation: 
+
+`npm i json-server`
+
+- JSON object in *db.json* file
+
 ## Available Scripts
 
 In the project directory, you can run:
