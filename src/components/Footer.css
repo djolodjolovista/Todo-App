@@ -1,4 +1,16 @@
 a {
     padding-left: 2px;
     padding-right: 2px;
+    text-decoration: none;
+    color: blue;
+}
+
+a:hover {
+  color: rgb(143, 255, 177);
+}
+
+.link-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
 }

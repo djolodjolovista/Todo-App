@@ -1,16 +1,15 @@
-enum CounterActionType {
-  INCREMENT = 'INCREMENT',
-  DECREMENT = 'DECREMENT'
-}
+import { CounterActionType } from '../actions';
 
 export interface CounterStateType {
   number: number;
   name: string;
+  step: number;
 }
 
 const initialState: CounterStateType = {
   number: 0,
-  name: 'Click-Counter'
+  name: 'Click-Counter',
+  step: 1
 };
 
 const counterReducer = (state = initialState, action: any) => {
@@ -24,7 +23,13 @@ const counterReducer = (state = initialState, action: any) => {
     case CounterActionType.DECREMENT:
       return {
         ...state,
-        number: state.number - 1
+        number: state.number - action.payload.step
+      };
+
+    case CounterActionType.UPDATE_STEP:
+      return {
+        ...state,
+        step: action.payload
       };
 
     default:

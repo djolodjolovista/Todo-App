@@ -15,3 +15,37 @@ span.delete-item button {
 li:hover span.delete-item {
     visibility: visible;
 }
+
+input[type='checkbox']:hover {
+   cursor: pointer;
+}
+
+.item-container {
+    display: flex;
+    flex-direction: row;
+}
+
+.item-container>input {
+    align-self: baseline;
+}
+
+.delete-container {
+    align-self: center;
+}
+
+.text-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.todo-title {
+    margin: 0;
+}
+
+.todo-text {
+    margin: 0;
+}
+
+.finished-todo {
+    text-decoration: line-through;
+}

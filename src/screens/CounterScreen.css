@@ -1,0 +1,19 @@
+.buttons-container {
+    padding: 5px;
+}
+
+.counter-buttons {
+    margin: 5px;
+}
+
+.step-input {
+    width: 50px;
+}
+
+.step-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+}

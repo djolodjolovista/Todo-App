@@ -9,6 +9,8 @@
 
 input {
     font-size: 20px;
+    border-radius: 12px;
+    padding: 2px 8px 2px 8px;
 }
 
 ul {

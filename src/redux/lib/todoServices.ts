@@ -4,7 +4,7 @@ export const getTodos = () => {
   return fetch('http://localhost:8080/todos').then((res) => res.json());
 };
 
-export const createTodo = async (name: string) => {
+export const createTodo = async (name: string, text: string) => {
   return (
     await fetch('http://localhost:8080/todos', {
       method: 'POST',
@@ -12,7 +12,7 @@ export const createTodo = async (name: string) => {
         Accept: 'application/json',
         'Content-Type': 'application/json'
       },
-      body: JSON.stringify({ name: name, isCompleted: false })
+      body: JSON.stringify({ name: name, text: text, isCompleted: false })
     })
   ).json(); //ako nije JSON ne moze u store da ga upise
 };

@@ -3,17 +3,22 @@ import { TodoActionType } from '../actions';
 export interface Todo {
   id: number;
   name: string;
+  text: string;
   isCompleted: boolean;
 }
 
 export interface TodosState {
   todos: Todo[];
   currentTodo: string;
+  currentTodoText: string;
+  showConfetti: boolean;
 }
 
 const initialState: TodosState = {
   todos: [],
-  currentTodo: 'temp'
+  currentTodo: '',
+  currentTodoText: '',
+  showConfetti: false
 };
 
 export enum FilterTodoType {
@@ -40,6 +45,7 @@ const todoReducer = (state = initialState, action: any) => {
       return {
         ...state,
         currentTodo: '',
+        currentTodoText: '',
         todos: state.todos.concat(action.payload as Todo) //payload ce biti todo objekat
       };
 
@@ -55,6 +61,12 @@ const todoReducer = (state = initialState, action: any) => {
         currentTodo: action.payload
       };
 
+    case TodoActionType.UPDATE_CURRENT_TEXT:
+      return {
+        ...state,
+        currentTodoText: action.payload
+      };
+
     case TodoActionType.TODO_REPLACE:
       return {
         ...state,
@@ -65,6 +77,12 @@ const todoReducer = (state = initialState, action: any) => {
       return {
         ...state,
         todos: state.todos.filter((t) => t.id != action.payload)
+      };
+
+    case TodoActionType.SHOW_CONFETTI:
+      return {
+        ...state,
+        showConfetti: action.payload
       };
 
     default:

@@ -12,6 +12,7 @@
     "eslint-plugin-react": "^7.32.2",
     "json-server": "^0.17.3",
     "react": "^18.2.0",
+    "react-confetti": "^6.1.0",
     "react-dom": "^18.2.0",
     "react-redux": "^8.0.5",
     "react-router-dom": "^6.10.0",
@@ -22,6 +23,7 @@
   },
   "devDependencies": {
     "@types/react": "^18.0.35",
+    "@types/tween-functions": "^1.2.0",
     "eslint": "^8.38.0",
     "eslint-config-prettier": "^8.8.0",
     "eslint-plugin-prettier": "^4.2.1",
