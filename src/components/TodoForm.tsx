@@ -1,26 +1,34 @@
 import React from 'react';
-import { useSelector, useDispatch } from 'react-redux';
-import { RootState } from '../redux/reducers';
-import { saveTodo, updateCurrentTodo, updateCurrentTodoText } from '../redux/actions';
-import { AppDispatch } from '..';
 import './TodoForm.css';
+import { useAppDispatch, useAppSelector } from '../app/hooks';
+import { addNewTodo, updateCurrentText, updateCurrentTitle } from '../features/todo/todoSlice';
 
 const TodoForm = () => {
-  const currentTodo = useSelector((state: RootState) => state.todo.currentTodo);
-  const currentTodoText = useSelector((state: RootState) => state.todo.currentTodoText);
-  const dispatch = useDispatch<AppDispatch>();
+  //*const currentTodo = useSelector((state: RootState) => state.todo.currentTodo);
+  //*const currentTodoText = useSelector((state: RootState) => state.todo.currentTodoText);
+  const currentTodo = useAppSelector((state) => state.todos.currentTodoTitle);
+  const currentTodoText = useAppSelector((state) => state.todos.currentTodoText);
+  const dispatch = useAppDispatch();
 
   const handleInputTextChange = (e: any) => {
-    dispatch(updateCurrentTodoText(e.target.value));
+    dispatch(updateCurrentText(e.target.value));
   };
 
   const handleInputChange = (e: any) => {
-    dispatch(updateCurrentTodo(e.target.value));
+    dispatch(updateCurrentTitle(e.target.value));
   };
 
   const handleSubmit = (e: any) => {
     e.preventDefault();
-    dispatch(saveTodo(currentTodo, currentTodoText));
+    //*dispatch(saveTodo(currentTodo, currentTodoText));
+    dispatch(
+      addNewTodo({
+        name: currentTodo,
+        text: currentTodoText,
+        isCompleted: false,
+        id: 0
+      })
+    );
   };
 
   return (

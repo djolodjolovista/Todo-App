@@ -1,14 +1,12 @@
 import React from 'react';
-import { useSelector, useDispatch } from 'react-redux';
-import { RootState } from '../redux/reducers';
-import { increment, decrement, updateCounterStep } from '../redux/actions';
 import './CounterScreen.css';
+import { useAppDispatch, useAppSelector } from '../app/hooks';
+import { increment, decrement, updateStep } from '../features/counter/counterSlice';
 
 const CounterScreen = () => {
-  const counter = useSelector((state: RootState) => state.counter.number);
-  const step = useSelector((state: RootState) => state.counter.step);
-  const isLogged = useSelector((state: RootState) => state.isLogged);
-  const dispatch = useDispatch();
+  const counter = useAppSelector((state) => state.counter.value);
+  const step = useAppSelector((state) => state.counter.step);
+  const dispatch = useAppDispatch();
   return (
     <div>
       <h1>Counter: {counter}</h1>
@@ -21,7 +19,7 @@ const CounterScreen = () => {
             -
           </button>
         </div>
-        {isLogged ? <h3>Valuable information that I should not see!</h3> : ''}
+
         <div className="step-container">
           <h3>Step:</h3>
           <input
@@ -29,9 +27,7 @@ const CounterScreen = () => {
             type="number"
             value={step}
             onChange={(e) =>
-              isNaN(parseInt(e.target.value))
-                ? 0
-                : dispatch(updateCounterStep(parseInt(e.target.value)))
+              isNaN(parseInt(e.target.value)) ? 0 : dispatch(updateStep(parseInt(e.target.value)))
             }
           />
         </div>

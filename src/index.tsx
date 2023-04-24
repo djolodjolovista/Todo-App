@@ -3,13 +3,8 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-import { legacy_createStore, applyMiddleware } from 'redux';
-import thunk from 'redux-thunk';
-import rootReducer from './redux/reducers';
-import { composeWithDevTools } from 'redux-devtools-extension'; // ekstenzija za devtool u chrome
 import { Provider } from 'react-redux';
-
-const store = legacy_createStore(rootReducer, composeWithDevTools(applyMiddleware(thunk)));
+import { store } from './app/store';
 
 const root = ReactDOM.createRoot(document.getElementById('root') as HTMLElement);
 
@@ -17,9 +12,7 @@ export type AppDispatch = typeof store.dispatch;
 
 root.render(
   <Provider store={store}>
-    <React.StrictMode>
-      <App />
-    </React.StrictMode>
+    <App />
   </Provider>
 );
 

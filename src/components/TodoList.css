@@ -3,3 +3,14 @@ ul li {
     margin: 5px;
     border-radius: 10px;
   }
+
+  .animated-todo-item {
+    position: relative;
+    animation-name: todo-item;
+    animation-duration: 2s;
+  }
+
+  @keyframes todo-item {
+    0% {left: -500px;}
+    100% {left:0px;}
+  }

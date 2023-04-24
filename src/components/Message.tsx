@@ -1,11 +1,25 @@
 import React from 'react';
 import './Message.css';
-import { useSelector } from 'react-redux';
-import { RootState } from '../redux/reducers';
+import { useAppSelector } from '../app/hooks';
+import { Status } from '../features/todo/todoSlice';
 
 const Message = () => {
-  const message = useSelector((state: RootState) => state.message);
-  return message ? <span className="message">{message}</span> : null;
+  const message = useAppSelector((state) => state.todos.status);
+  const messageText = (message: Status) => {
+    switch (message) {
+      case Status.IDLE:
+        return null;
+      case Status.LOADING:
+        return 'Loading!';
+      case Status.SUCCEEDED:
+        return '';
+      case Status.FAILED:
+        return 'Failed!';
+      default:
+        return '';
+    }
+  };
+  return messageText(message) ? <span className="message">{messageText(message)}</span> : null;
 };
 
 export default Message;

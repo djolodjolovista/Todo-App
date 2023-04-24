@@ -6,16 +6,15 @@ import Message from '../components/Message';
 import Footer from '../components/Footer';
 import useWindowSize from '../hooks/useWindowSize';
 import Confetti from 'react-confetti';
-import { useDispatch, useSelector } from 'react-redux';
-import { RootState } from '../redux/reducers';
-import { AppDispatch } from '..';
-import { toggleConfetti } from '../redux/actions';
+import { useAppDispatch, useAppSelector } from '../app/hooks';
+import { toggleConfetti } from '../features/todo/todoSlice';
 
 const ToDoScreen = () => {
   //const todosState = useSelector((state: RootState) => state.todo);
   const [width, height] = useWindowSize();
-  const showConfetti = useSelector((state: RootState) => state.todo.showConfetti);
-  const dispatch = useDispatch<AppDispatch>();
+  //*const showConfetti = useSelector((state: RootState) => state.todo.showConfetti);
+  const showConfetti = useAppSelector((state) => state.todos.showConfetti);
+  const dispatch = useAppDispatch();
 
   //Unistavanje confetti-a pomocu useEffecta i timeout-a
   /*useEffect(() => {

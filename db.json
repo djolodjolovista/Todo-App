@@ -4,7 +4,7 @@
       "id": 1,
       "name": "Task1",
       "text": "Ovo je prvi todo",
-      "isCompleted": false
+      "isCompleted": true
     },
     {
       "id": 2,
@@ -21,7 +21,7 @@
     {
       "name": "Task5",
       "text": "Ovo je peti todo",
-      "isCompleted": true,
+      "isCompleted": false,
       "id": 5
     },
     {
@@ -29,18 +29,6 @@
       "text": "Ovo je sesti todo",
       "isCompleted": true,
       "id": 6
-    },
-    {
-      "name": "Task7",
-      "text": "Ovo je sedmi todo",
-      "isCompleted": true,
-      "id": 7
-    },
-    {
-      "name": "Task8",
-      "text": "Ovo je osmi todo",
-      "isCompleted": false,
-      "id": 8
     }
   ]
 }
