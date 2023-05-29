@@ -6,7 +6,7 @@ import { Todo, deleteTodo, updateTodo } from '../features/todo/todoSlice';
 const TodoItem = (todo: Todo, key: string) => {
   const dispatch = useAppDispatch();
   return (
-    <li key={key}>
+    <li className="animated-todo-item" key={key}>
       <div className="item-container">
         <div className="delete-container">
           <span className="delete-item">

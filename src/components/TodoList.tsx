@@ -24,9 +24,7 @@ const TodoList = () => {
     <div className="Todo-List">
       <ul>
         {todos.map((todo: Todo) => (
-          <div className="animated-todo-item" key={todo.id}>
-            <TodoItem {...todo} />
-          </div>
+          <TodoItem {...todo} key={todo.id} />
         ))}
       </ul>
     </div>

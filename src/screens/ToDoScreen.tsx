@@ -8,6 +8,7 @@ import useWindowSize from '../hooks/useWindowSize';
 import Confetti from 'react-confetti';
 import { useAppDispatch, useAppSelector } from '../app/hooks';
 import { toggleConfetti } from '../features/todo/todoSlice';
+import Header from '../components/Header';
 
 const ToDoScreen = () => {
   //const todosState = useSelector((state: RootState) => state.todo);
@@ -26,6 +27,7 @@ const ToDoScreen = () => {
 
   return (
     <div>
+      <Header />
       <div className="Todo-App">
         {showConfetti && (
           <Confetti

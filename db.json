@@ -4,7 +4,7 @@
       "id": 1,
       "name": "Task1",
       "text": "Ovo je prvi todo",
-      "isCompleted": true
+      "isCompleted": false
     },
     {
       "id": 2,
@@ -29,6 +29,12 @@
       "text": "Ovo je sesti todo",
       "isCompleted": true,
       "id": 6
+    },
+    {
+      "name": "Taks7",
+      "text": "dsdsd",
+      "isCompleted": false,
+      "id": 7
     }
   ]
 }
